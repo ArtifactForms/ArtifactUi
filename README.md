@@ -1,3 +1,3 @@
 # ArtifactUi
 
-Get my hands dirty again on some UI. Using TDD. 
+Get my hands dirty on some UI stuff again. Using TDD. 
