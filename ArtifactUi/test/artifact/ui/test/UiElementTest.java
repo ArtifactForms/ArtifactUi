@@ -3,6 +3,8 @@ package artifact.ui.test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import artifact.ui.Margin;
+import artifact.ui.Padding;
 import artifact.ui.UiElement;
 
 public class UiElementTest {
@@ -146,6 +148,36 @@ public class UiElementTest {
 	public void getElementAtZeroReturnsNullByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertNull(uiElement.getElementAt(0));
+	}
+	
+	@Test
+	public void getPaddingIsNotNullByDefault() {
+		UiElement uiElement = new UiElement();
+		Assert.assertNotNull(uiElement.getPadding());
+	}
+	
+	@Test
+	public void paddingIsConsistent() {
+		int random = (int) (Math.random() * Integer.MAX_VALUE);
+		UiElement uiElement = new UiElement();
+		Padding padding = uiElement.getPadding();
+		padding.setBottom(random);
+		Assert.assertEquals(random, uiElement.getPadding().getBottom());
+	}
+	
+	@Test
+	public void getMarginIsNotNullByDefault() {
+		UiElement uiElement = new UiElement();
+		Assert.assertNotNull(uiElement.getMargin());
+	}
+	
+	@Test
+	public void marginIsConsistent() {
+		int random = (int) (Math.random() * Integer.MAX_VALUE);
+		UiElement uiElement = new UiElement();
+		Margin margin = uiElement.getMargin();
+		margin.setLeft(random);
+		Assert.assertEquals(random, uiElement.getMargin().getLeft());
 	}
 	
 }

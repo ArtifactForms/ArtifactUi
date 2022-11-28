@@ -3,7 +3,14 @@ package artifact.ui;
 public class UiElement {
 	
 	private int elementCount;
+	private Padding padding;
+	private Margin margin;
 	private UiElement parent;
+	
+	public UiElement() {
+		padding = new Padding();
+		margin = new Margin();
+	}
 	
 	public void add(UiElement uiElement) {
 		elementCount++;
@@ -35,6 +42,14 @@ public class UiElement {
 	
 	public UiElement getElementAt(int index) {
 		return null;
+	}
+	
+	public Padding getPadding() {
+		return padding;
+	}
+	
+	public Margin getMargin() {
+		return margin;
 	}
 
 }
