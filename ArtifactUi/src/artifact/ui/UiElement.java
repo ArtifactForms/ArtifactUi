@@ -2,6 +2,8 @@ package artifact.ui;
 
 public class UiElement {
 	
+	private int contentBoxWidth;
+	private int contentBoxHeight;
 	private int elementCount;
 	private Padding padding;
 	private Margin margin;
@@ -57,5 +59,21 @@ public class UiElement {
 	public Insets getBorderInsets() {
 		return insets;
 	}
-
+	
+	public int getContentBoxWidth() {
+		return contentBoxWidth;
+	}
+	
+	public void setContentBoxWidth(int contentBoxWidth) {
+		this.contentBoxWidth = contentBoxWidth;
+	}
+	
+	public int getContentBoxHeight() {
+		return contentBoxHeight;
+	}
+	
+	public void setContentBoxHeight(int contentBoxHeight) {
+		this.contentBoxHeight = contentBoxHeight;
+	}
+	
 }

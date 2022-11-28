@@ -196,4 +196,32 @@ public class UiElementTest {
 		Assert.assertEquals(random, uiElement.getBorderInsets().getRight());
 	}
 	
+	@Test
+	public void getContentBoxWidthIsZeroByDefault() {
+		UiElement uiElement = new UiElement();
+		Assert.assertEquals(0, uiElement.getContentBoxWidth());
+	}
+	
+	@Test
+	public void getContentBoxHeightIsZeroByDefault() {
+		UiElement uiElement = new UiElement();
+		Assert.assertEquals(0, uiElement.getContentBoxHeight());
+	}
+	
+	@Test
+	public void setContentBoxWidthToValueGetReturnsValue() {
+		int random = (int) (Math.random() * Integer.MAX_VALUE);
+		UiElement uiElement = new UiElement();
+		uiElement.setContentBoxWidth(random);
+		Assert.assertEquals(random, uiElement.getContentBoxWidth());
+	}
+	
+	@Test
+	public void setContentBoxHeightToValueGetReturnsValue() {
+		int random = (int) (Math.random() * Integer.MAX_VALUE);
+		UiElement uiElement = new UiElement();
+		uiElement.setContentBoxHeight(random);
+		Assert.assertEquals(random, uiElement.getContentBoxHeight());
+	}
+	
 }
