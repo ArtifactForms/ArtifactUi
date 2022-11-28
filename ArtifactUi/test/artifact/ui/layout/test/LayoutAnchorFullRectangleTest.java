@@ -90,4 +90,21 @@ public class LayoutAnchorFullRectangleTest {
 		Assert.assertEquals(expectedWidth, child.getContentBoxWidth());
 	}
 	
+	@Test
+	public void notesVerticalBorderOfChild() {
+		int contentHeight = (int) (Math.random() * Integer.MAX_VALUE);
+		int childBorderTop = (int) (Math.random() * Integer.MAX_VALUE);
+		int childBorderBottom= (int) (Math.random() * Integer.MAX_VALUE);
+		int expectedHeight = contentHeight- childBorderTop - childBorderBottom;
+		LayoutAnchorFullRectangle layoutAnchor = new LayoutAnchorFullRectangle();
+		UiElement child = new UiElement();
+		UiElement parent = new UiElement();
+		parent.setContentBoxHeight(contentHeight);
+		parent.add(child);
+		child.getBorderInsets().setTop(childBorderTop);
+		child.getBorderInsets().setBottom(childBorderBottom);
+		layoutAnchor.anchor(child);
+		Assert.assertEquals(expectedHeight, child.getContentBoxHeight());
+	}
+	
 }
