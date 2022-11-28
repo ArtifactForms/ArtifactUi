@@ -5,11 +5,13 @@ public class UiElement {
 	private int elementCount;
 	private Padding padding;
 	private Margin margin;
+	private Insets insets;
 	private UiElement parent;
 	
 	public UiElement() {
 		padding = new Padding();
 		margin = new Margin();
+		insets = new Insets();
 	}
 	
 	public void add(UiElement uiElement) {
@@ -50,6 +52,10 @@ public class UiElement {
 	
 	public Margin getMargin() {
 		return margin;
+	}
+	
+	public Insets getBorderInsets() {
+		return insets;
 	}
 
 }
