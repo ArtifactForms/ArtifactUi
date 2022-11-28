@@ -15,13 +15,13 @@ public class UiElementTest {
 		UiElement uiElement = new UiElement();
 		Assert.assertTrue(uiElement.isRoot());
 	}
-	
+
 	@Test
 	public void getParentReturnsNullByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertNull(uiElement.getParent());
 	}
-	
+
 	@Test
 	public void getParentAfterAddingChildElement() {
 		UiElement child = new UiElement();
@@ -29,7 +29,7 @@ public class UiElementTest {
 		uiElement.add(child);
 		Assert.assertTrue(uiElement == child.getParent());
 	}
-	
+
 	@Test
 	public void isNoRootAfterAdded() {
 		UiElement parent = new UiElement();
@@ -46,7 +46,7 @@ public class UiElementTest {
 		parent.remove(child);
 		Assert.assertTrue(child.isRoot());
 	}
-	
+
 	@Test
 	public void getParentReturnsNullAfterRemove() {
 		UiElement parent = new UiElement();
@@ -55,14 +55,14 @@ public class UiElementTest {
 		parent.remove(child);
 		Assert.assertNull(child.getParent());
 	}
-	
+
 	@Test
 	public void getRootRetunsSelfByDefault() {
 		UiElement uiElement = new UiElement();
 		UiElement root = uiElement.getRoot();
 		Assert.assertTrue(root == uiElement);
 	}
-	
+
 	@Test
 	public void getRootReturnsParentAfterAdded() {
 		UiElement parent = new UiElement();
@@ -70,7 +70,7 @@ public class UiElementTest {
 		parent.add(child);
 		Assert.assertTrue(parent == child.getRoot());
 	}
-	
+
 	@Test
 	public void getRootOfNestedElement() {
 		UiElement root = new UiElement();
@@ -80,13 +80,13 @@ public class UiElementTest {
 		root.add(childA);
 		Assert.assertTrue(root == childB.getRoot());
 	}
-	
+
 	@Test
 	public void getElementCountReturnsZeroByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertEquals(0, uiElement.getElementCount());
 	}
-	
+
 	@Test
 	public void getElementCountIsOneAfterAddingOneElement() {
 		UiElement parent = new UiElement();
@@ -94,7 +94,7 @@ public class UiElementTest {
 		parent.add(child);
 		Assert.assertEquals(1, parent.getElementCount());
 	}
-	
+
 	@Test
 	public void getElementCountIsZeroAfterAddAndRemove() {
 		UiElement parent = new UiElement();
@@ -103,7 +103,7 @@ public class UiElementTest {
 		parent.remove(child);
 		Assert.assertEquals(0, parent.getElementCount());
 	}
-	
+
 	@Test
 	public void getElementCountAfterAddingElements() {
 		UiElement element = new UiElement();
@@ -112,7 +112,7 @@ public class UiElementTest {
 			Assert.assertEquals(i + 1, element.getElementCount());
 		}
 	}
-	
+
 	@Test
 	public void getElementCountAfterAddRemoveAdd() {
 		UiElement parent = new UiElement();
@@ -122,7 +122,7 @@ public class UiElementTest {
 		parent.add(child);
 		Assert.assertEquals(1, parent.getElementCount());
 	}
-	
+
 	@Test
 	public void getElementCountAfterAddRemoveAddTwice() {
 		UiElement parent = new UiElement();
@@ -133,7 +133,7 @@ public class UiElementTest {
 		parent.remove(child);
 		Assert.assertEquals(0, parent.getElementCount());
 	}
-	
+
 	@Test
 	public void getElementCountAfterAddRemove() {
 		UiElement parent = new UiElement();
@@ -144,19 +144,19 @@ public class UiElementTest {
 		parent.remove(child);
 		Assert.assertEquals(2, parent.getElementCount());
 	}
-	
+
 	@Test
 	public void getElementAtZeroReturnsNullByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertNull(uiElement.getElementAt(0));
 	}
-	
+
 	@Test
 	public void getPaddingIsNotNullByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertNotNull(uiElement.getPadding());
 	}
-	
+
 	@Test
 	public void paddingIsConsistent() {
 		int random = (int) (Math.random() * Integer.MAX_VALUE);
@@ -165,13 +165,13 @@ public class UiElementTest {
 		padding.setBottom(random);
 		Assert.assertEquals(random, uiElement.getPadding().getBottom());
 	}
-	
+
 	@Test
 	public void getMarginIsNotNullByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertNotNull(uiElement.getMargin());
 	}
-	
+
 	@Test
 	public void marginIsConsistent() {
 		int random = (int) (Math.random() * Integer.MAX_VALUE);
@@ -180,13 +180,13 @@ public class UiElementTest {
 		margin.setLeft(random);
 		Assert.assertEquals(random, uiElement.getMargin().getLeft());
 	}
-	
+
 	@Test
 	public void borderInsetsAreNotNotNullByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertNotNull(uiElement.getBorderInsets());
 	}
-	
+
 	@Test
 	public void borderInsetsAreConsistent() {
 		int random = (int) (Math.random() * Integer.MAX_VALUE);
@@ -195,19 +195,19 @@ public class UiElementTest {
 		insets.setRight(random);
 		Assert.assertEquals(random, uiElement.getBorderInsets().getRight());
 	}
-	
+
 	@Test
 	public void getContentBoxWidthIsZeroByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertEquals(0, uiElement.getContentBoxWidth());
 	}
-	
+
 	@Test
 	public void getContentBoxHeightIsZeroByDefault() {
 		UiElement uiElement = new UiElement();
 		Assert.assertEquals(0, uiElement.getContentBoxHeight());
 	}
-	
+
 	@Test
 	public void setContentBoxWidthToValueGetReturnsValue() {
 		int random = (int) (Math.random() * Integer.MAX_VALUE);
@@ -215,7 +215,7 @@ public class UiElementTest {
 		uiElement.setContentBoxWidth(random);
 		Assert.assertEquals(random, uiElement.getContentBoxWidth());
 	}
-	
+
 	@Test
 	public void setContentBoxHeightToValueGetReturnsValue() {
 		int random = (int) (Math.random() * Integer.MAX_VALUE);
@@ -223,5 +223,39 @@ public class UiElementTest {
 		uiElement.setContentBoxHeight(random);
 		Assert.assertEquals(random, uiElement.getContentBoxHeight());
 	}
-	
+
+	@Test
+	public void getBorderBoxWidth() {
+		int contentWidth = (int) (Math.random() * Integer.MAX_VALUE);
+		int paddingLeft = (int) (Math.random() * Integer.MAX_VALUE);
+		int paddingRight = (int) (Math.random() * Integer.MAX_VALUE);
+		int borderLeft = (int) (Math.random() * Integer.MAX_VALUE);
+		int borderRight = (int) (Math.random() * Integer.MAX_VALUE);
+		int expectedWidth = contentWidth + paddingLeft + paddingRight + borderLeft + borderRight;
+		UiElement uiElement = new UiElement();
+		uiElement.setContentBoxWidth(contentWidth);
+		uiElement.getPadding().setLeft(paddingLeft);
+		uiElement.getPadding().setRight(paddingRight);
+		uiElement.getBorderInsets().setLeft(borderLeft);
+		uiElement.getBorderInsets().setRight(borderRight);
+		Assert.assertEquals(expectedWidth, uiElement.getBorderBoxWidth());
+	}
+
+	@Test
+	public void getBorderBoxHeight() {
+		int contentHeight = (int) (Math.random() * Integer.MAX_VALUE);
+		int paddingTop = (int) (Math.random() * Integer.MAX_VALUE);
+		int paddingBottom = (int) (Math.random() * Integer.MAX_VALUE);
+		int borderTop = (int) (Math.random() * Integer.MAX_VALUE);
+		int borderBottom = (int) (Math.random() * Integer.MAX_VALUE);
+		int expectedHeight = contentHeight + paddingTop + paddingBottom + borderTop + borderBottom;
+		UiElement uiElement = new UiElement();
+		uiElement.setContentBoxHeight(contentHeight);
+		uiElement.getPadding().setTop(paddingTop);
+		uiElement.getPadding().setBottom(paddingBottom);
+		uiElement.getBorderInsets().setTop(borderTop);
+		uiElement.getBorderInsets().setBottom(borderBottom);
+		Assert.assertEquals(expectedHeight, uiElement.getBorderBoxHeight());
+	}
+
 }
