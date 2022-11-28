@@ -9,8 +9,10 @@ public class LayoutAnchorFullRectangle implements LayoutAnchor {
 		UiElement parent = uiElement.getParent();
 		int parentContentBoxWidth = parent.getContentBoxWidth();
 		int parentContentBoxHeight = parent.getContentBoxHeight();
-		uiElement.setContentBoxWidth(parentContentBoxWidth);
-		uiElement.setContentBoxHeight(parentContentBoxHeight);
+		int childWidth = parentContentBoxWidth - uiElement.getHorizontalPadding() - uiElement.getHorizontalInsets();
+		int childHeight = parentContentBoxHeight - uiElement.getVerticalPadding();
+		uiElement.setContentBoxWidth(childWidth);
+		uiElement.setContentBoxHeight(childHeight);
 	}
 	
 }

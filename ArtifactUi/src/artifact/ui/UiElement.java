@@ -84,19 +84,19 @@ public class UiElement {
 		return getContentBoxHeight() + getVerticalPadding() + getVerticalInsets();
 	}
 
-	private int getHorizontalPadding() {
+	public int getHorizontalPadding() {
 		return padding.getHorizontalPadding();
 	}
 
-	private int getHorizontalInsets() {
+	public int getHorizontalInsets() {
 		return insets.getHorizontalInsets();
 	}
 	
-	private int getVerticalPadding() {
+	public int getVerticalPadding() {
 		return padding.getVerticalPadding();
 	}
 	
-	private int getVerticalInsets() {
+	public int getVerticalInsets() {
 		return insets.getVerticalInsets();
 	}
 
